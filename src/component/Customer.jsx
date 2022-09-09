@@ -30,15 +30,15 @@ function Customer() {
   }, [data.length, index]);
 
   return (
-    <div className="customer  bg-green-500 h-screen">
+    <div className="customer bg-[#72bbd1] h-screen flex flex-col align-center justify-between">
       <Header />
-      <div className="search-form h-[50px] flex align-center justify-center ">
+      <div className="search-form h-[50px] w-full flex align-center justify-center ">
         <input
           type="text"
-          className="form-control w-[80%] rounded-[10px]"
-          placeholder="  Search ... "
+          className="form-control "
+          placeholder="  Typing ... "
         />
-        <button className="btn-search w-[15%] bg-slate-400 rounded-[10px] ">
+        <button className="btn-search w-[15%] h-[52px] bg-slate-400 rounded-[10px] ">
           button
         </button>
       </div>
@@ -46,14 +46,20 @@ function Customer() {
       {newData?.map((item) => {
         const { id, title, url, thumbnailUrl } = item;
         return (
-          <div className="result-form flex h-[300px] my-4 bg-red-500">
-            <div className="image-form w-[50%]" key={id}>
+          <div className="result-form h-[300px] flex align-center justify-center">
+            <div className="image-form w-[48%] h-[70%]" key={id}>
               <img src={img} alt="imageOfItem" className="w-56 my-10" />
             </div>
-            <div className="info w-[50%] flex flex-col align-center justify-around ">
-              <div className="name font-semibold text-[25px] ">{title}</div>
-              <div className="plu font-[20px] break-all">PLU {url}</div>
-              <div className="code break-all">code {thumbnailUrl}</div>
+            <div className="info w-[48%] h-[70%] flex flex-col align-center justify-around  ">
+              <div className="name font-semibold text-[25px] ">
+                {title.slice(0, 10)}
+              </div>
+              <div className="plu font-[20px] break-all">
+                PLU {url.slice(0, 10)}
+              </div>
+              <div className="code break-all">
+                code {thumbnailUrl.slice(0, 10)}
+              </div>
             </div>
           </div>
         );

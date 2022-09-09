@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="w-full h-[150px] flex items-center justify-center">
+    <footer className="w-full h-[150px] flex items-center justify-center border-t-2 rounded-t-[15px]">
       <div className="creator">LOGO</div>
       <div className="social flex flex-col items-center justify-center">
         <a href="https://telegram.org/" className="text-[#1877f2]">
