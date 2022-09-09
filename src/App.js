@@ -6,7 +6,7 @@ import Business from "./component/Business";
 
 function App() {
   return (
-    <div className="App w-full h-full">
+    <div className="App">
       <Routes>
         <Route path="/" element={<Headpage />} />
         <Route path="/customer" element={<Customer />} />

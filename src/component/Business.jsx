@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonComponent from "../mixin/ButtonComponent";
+import Footer from "../mixin/Footer";
 import Header from "../mixin/Header";
 
 function Business() {
@@ -7,6 +8,7 @@ function Business() {
     <div className="">
       <Header />
       <ButtonComponent />
+      <Footer />
     </div>
   );
 }

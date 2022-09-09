@@ -1,16 +1,36 @@
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "../mixin/ButtonComponent";
 import Header from "../mixin/Header";
-import { data } from "../fakeData";
+import img from "../images/image_temple.jpg";
+import Footer from "../mixin/Footer";
+// import { data } from "../fakeData";
 
-// const URL = "https://jsonplaceholder.typicode.com/photos";
 function Customer() {
-  const [index, setIndex] = useState([]);
+  const [data, setData] = useState([]);
+  const [index, setIndex] = useState(0);
+  const [newData, setNewData] = useState([]);
 
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/photos");
+        const data = await res.json();
+        setData(data);
+      } catch (err) {
+        alert(err);
+      }
+    };
+    getData();
+  }, []);
 
+  useEffect(() => {
+    if (data.length) {
+      setNewData([data[index]]);
+    }
+  }, [data.length, index]);
 
   return (
-    <div className="customer">
+    <div className="customer  bg-green-500 h-screen">
       <Header />
       <div className="search-form h-[50px] flex align-center justify-center ">
         <input
@@ -22,37 +42,46 @@ function Customer() {
           button
         </button>
       </div>
-      {data.map(({ name, code, plu, image }) => {
+
+      {newData?.map((item) => {
+        const { id, title, url, thumbnailUrl } = item;
         return (
-          <div className="result-form bg-slate-600 flex h-[300px] my-4" key={code}>
-            <img
-              src={image}
-              alt="imageOfItem"
-              className="w-[50%]"
-            />
-            <div className="info w-[50%] bg-red-300 flex flex-col align-center justify-around">
-              <div className="name font-semibold text-[25px]">{name}</div>
-              <div className="plu">PLU {plu}</div>
-              <div className="code">code {code}</div>
+          <div className="result-form flex h-[300px] my-4 bg-red-500">
+            <div className="image-form w-[50%]" key={id}>
+              <img src={img} alt="imageOfItem" className="w-56 my-10" />
+            </div>
+            <div className="info w-[50%] flex flex-col align-center justify-around ">
+              <div className="name font-semibold text-[25px] ">{title}</div>
+              <div className="plu font-[20px] break-all">PLU {url}</div>
+              <div className="code break-all">code {thumbnailUrl}</div>
             </div>
           </div>
         );
       })}
 
       <ButtonComponent />
+      <Footer />
     </div>
   );
 }
 
 export default Customer;
 
-  // const [dataF, setDataF] = useState("");
-
-  //   useEffect(() => {
-  //     const getData = async () => {
-  //       const res = await fetch(data);
-  //       const dataF = await res.json();
-  //       setDataF(dataF);
-  //     };
-  //     getData();
-  //   }, []);
+////////////
+// {data.map(({ name, code, plu, image }) => {
+//   return (
+//     <div
+//       className="result-form  flex h-[300px] my-4"
+//       key={code}
+//     >
+//       <div className="image-form w-[50%]">
+//         <img src={image} alt="imageOfItem" className="w-56 my-10" />
+//       </div>
+//       <div className="info w-[50%] flex flex-col align-center justify-around">
+//         <div className="name font-semibold text-[25px]">{name}</div>
+//         <div className="plu font-[20px]">PLU {plu}</div>
+//         <div className="code">code {code}</div>
+//       </div>
+//     </div>
+//   );
+// })}

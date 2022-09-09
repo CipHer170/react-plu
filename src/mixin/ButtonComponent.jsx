@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Button() {
   return (
     <Link to="/">
-      <buttton>Back</buttton>
+      <buttton className="bg-yellow-300">Back</buttton>
     </Link>
   );
 }
