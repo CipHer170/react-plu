@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Button from "../mixin/Button";
+import ButtonComponent from "../mixin/ButtonComponent";
 import Header from "../mixin/Header";
 import { data } from "../fakeData";
-function Customer() {
-  //   const [dataF, setDataF] = useState("");
 
-  //   useEffect(() => {
-  //     const getData = async () => {
-  //       const res = await fetch(data);
-  //       const dataF = await res.json();
-  //       setDataF(dataF);
-  //     };
-  //     getData();
-  //   }, []);
+// const URL = "https://jsonplaceholder.typicode.com/photos";
+function Customer() {
+  const [index, setIndex] = useState([]);
+
+
 
   return (
     <div className="customer">
@@ -24,25 +19,40 @@ function Customer() {
           placeholder="  Search ... "
         />
         <button className="btn-search w-[15%] bg-slate-400 rounded-[10px] ">
-          Search
+          button
         </button>
       </div>
       {data.map(({ name, code, plu, image }) => {
         return (
-          <div className="result-form" key={code}>
-            <div className="info">
-              <div className="name">{name}</div>
-              <div className="plu">{plu}</div>
-              <div className="code">{code}</div>
+          <div className="result-form bg-slate-600 flex h-[300px] my-4" key={code}>
+            <img
+              src={image}
+              alt="imageOfItem"
+              className="w-[50%]"
+            />
+            <div className="info w-[50%] bg-red-300 flex flex-col align-center justify-around">
+              <div className="name font-semibold text-[25px]">{name}</div>
+              <div className="plu">PLU {plu}</div>
+              <div className="code">code {code}</div>
             </div>
-            <img src={image} alt="imageOfItem" />
           </div>
         );
       })}
 
-      <Button />
+      <ButtonComponent />
     </div>
   );
 }
 
 export default Customer;
+
+  // const [dataF, setDataF] = useState("");
+
+  //   useEffect(() => {
+  //     const getData = async () => {
+  //       const res = await fetch(data);
+  //       const dataF = await res.json();
+  //       setDataF(dataF);
+  //     };
+  //     getData();
+  //   }, []);

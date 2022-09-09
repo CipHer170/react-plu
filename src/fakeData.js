@@ -1,32 +1,34 @@
+import img from "./images/image_temple.jpg";
+
 export const data = [
   {
     name: "Name",
     plu: 123,
-    code: 55996,
-    image: "images/image_temple.jpg",
+    code: 35996,
+    image: img,
   },
   {
     name: "Name",
     plu: 102,
-    code: 55596,
-    image: "./images/image_temple.jpg",
+    code: 25596,
+    image: img,
   },
   {
     name: "Name",
     plu: 13,
-    code: 55996,
-    image: "./images/image_temple.jpg",
+    code: 15996,
+    image: img,
   },
   {
     name: "Name",
     plu: 123,
-    code: 53596,
-    image: "./images/image_temple.jpg",
+    code: 3596,
+    image: img,
   },
   {
     name: "Name",
     plu: 123,
-    code: 53396,
-    image: "./images/image_temple.jpg",
+    code: 396,
+    image: img,
   },
 ];
