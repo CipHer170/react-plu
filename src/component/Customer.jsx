@@ -32,7 +32,7 @@ function Customer() {
   return (
     <div className="customer bg-[#72bbd1] h-screen flex flex-col align-center justify-between">
       <Header />
-      <div className="search-form h-[50px] w-full flex align-center justify-center ">
+      <div className="search-form h-[50px] w-full flex align-center justify-around ">
         <input
           type="text"
           className="form-control "

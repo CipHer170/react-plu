@@ -20,7 +20,7 @@ function Business() {
           type="submit"
           className="bg-[#18c52f] w-12 rounded-[15px] px-24 py-2"
         >
-          Item
+          NewItem
         </button>
         <button
           type="submit"
